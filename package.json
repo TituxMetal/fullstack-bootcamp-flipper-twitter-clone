@@ -1,0 +1,41 @@
+{
+  "author": "Titux Metal <github@lgdweb.fr>",
+  "description": "Twitter clone project from fullstack Javascript Bootcamp",
+  "license": "MIT",
+  "main": "src/index.js",
+  "name": "fullstack-bootcamp-flipper-twitter-clone",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "babel src -d dist",
+    "prebuild": "rm -rf dist",
+    "start": "yarn build && node ./dist/index.js",
+    "watch": "env-cmd babel-watch -L src/index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "express-session": "^1.17.2",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.3",
+    "@babel/core": "^7.14.3",
+    "@babel/plugin-transform-runtime": "^7.14.3",
+    "@babel/preset-env": "^7.14.4",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "babel-watch": "^7.4.1",
+    "env-cmd": "^10.1.0",
+    "eslint": "^7.27.0",
+    "eslint-config-kentcdodds": "^18.2.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "prettier": "^2.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TituxMetal/fullstack-bootcamp-flipper-twitter-clone"
+  }
+}
