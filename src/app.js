@@ -15,6 +15,14 @@ const createApp = () => {
 
   app.use('/', mainRoutes)
 
+  app.all('*', async (req, res, next) => {
+    const error = `${req.path} page does not exists`
+
+    res.status(404).render('error', { error })
+
+    return next()
+  })
+
   const server = app.listen(port, '0.0.0.0', () =>
     console.info(`Server is listening on http://localhost:${port}`)
   )
