@@ -1,0 +1,8 @@
+mixin field(type, name, placeholder, id)
+  label(for=id class='block text-sm font-medium leading-5 text-gray-700') 
+    | #{name}
+    input(type=type id=id placeholder=placeholder name=id class='appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 transition duration-150 ease-in-out focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5')
+
+mixin button(text, type = 'submit')
+  button(type='submit' class='w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 transition duration-150 ease-in-out hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700')
+          | #{text}
