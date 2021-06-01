@@ -1,4 +1,5 @@
 import express from 'express'
+import path from 'path'
 
 import { port } from '#root/config'
 import { mainRoutes } from '#root/routes'
@@ -6,12 +7,12 @@ import { mainRoutes } from '#root/routes'
 const createApp = () => {
   const app = express()
 
-  app.set('views', './src/views')
-  app.set('view engine', 'pug')
-
   app.use(express.static('public'))
   app.use(express.json())
   app.use(express.urlencoded({ extended: true }))
+
+  app.set('views', path.join(__dirname, 'views'))
+  app.set('view engine', 'pug')
 
   app.use('/', mainRoutes)
 
