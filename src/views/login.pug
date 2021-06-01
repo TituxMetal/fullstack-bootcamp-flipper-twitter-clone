@@ -1,0 +1,15 @@
+extends layout.pug
+include mixins/head
+include mixins/formField
+
+block pageTitle
+  +head('Sign in to Flipper')
+
+block content
+  form(action='/' method='POST' class='bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10')
+    div(class='w-full')
+      +field('email', 'Email', 'Enter your email', 'email')
+    div(class='w-full mt-6')
+      +field('password', 'Password', 'Enter your password', 'password')
+    div(class='w-full mt-6')
+      +button('Sign In')

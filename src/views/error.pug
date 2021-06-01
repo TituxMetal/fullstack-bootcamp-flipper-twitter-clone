@@ -1,6 +1,11 @@
-include layout.pug
+extends layout
+include mixins/head
+
+block pageTitle
+  +head('Error')
 
 block content
-  h1 There is an error 
-  p #{error}
-  p Go to #[a(href="/") Home] page.
+  p(class='mt-6 text-center text-2xl leading-9 font-extrabold text-gray-900')
+    | #{message}
+  a(href='/' class='mt-6 text-center text-1xl leading-9 font-extrabold text-blue-500 block')
+    | Back

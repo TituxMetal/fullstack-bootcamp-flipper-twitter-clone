@@ -1,9 +1,16 @@
+include mixins/container
+
 doctype html
 html(lang="en")
   head
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Welcome to Flipper
+    link(rel='stylesheet', href='./css/app.css')
+    title Welcome on Flipper
   body
-    block content
+    +container
+      block pageTitle
+
+      div(class='max-w-md w-full mt-8 sm:mx-auto sm:w-full sm:max-w-md')
+        block content
