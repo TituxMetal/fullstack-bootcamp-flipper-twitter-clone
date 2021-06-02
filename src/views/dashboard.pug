@@ -1,0 +1,9 @@
+extends layout
+include mixins/head
+
+block pageTitle
+  +head('Dashboard')
+
+block content
+  p(class='mt-6 text-center text-2xl leading-9 font-extrabold text-gray-900')
+    | Welcome to the dashboard
