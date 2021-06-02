@@ -1,10 +1,19 @@
 import { Router } from 'express'
 
+import { loginOrSignup } from '#root/utils'
+
 const router = new Router()
 
-router.get('/', (_req, res) => res.render('login'))
+router.get('/', (req, res) => {
+  if (!req.session.userid) {
+    return res.render('login')
+  }
+  console.log(req.session)
 
-router.post('/', (req, res) => {
+  return res.render('dashboard')
+})
+
+router.post('/', async (req, res) => {
   const { email, password } = req.body
 
   if (!email || !password) {
@@ -13,9 +22,20 @@ router.post('/', (req, res) => {
       .render('error', { message: 'Please set both email and password' })
   }
 
-  console.log(req.body, email, password)
+  const user = await loginOrSignup(email, password)
 
-  return res.end()
+  console.log('result returning by loginOrSignup', user)
+
+  if (!user) {
+    return res
+      .status(401)
+      .render('error', { message: 'Invalid email or password' })
+  }
+
+  req.session.userid = user
+  req.session.save()
+
+  return res.redirect('/')
 })
 
 export default router
